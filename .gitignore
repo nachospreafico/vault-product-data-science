@@ -6,7 +6,7 @@ __pycache__/
 
 # Virtual environments
 venv/
-.env/
+.venv/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -19,9 +19,19 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Environment variables
+.env
+.env.*
+
 # Data
 data/raw/
 *.parquet
+
+# SQLite databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
 
 # Outputs
 outputs/
@@ -30,9 +40,6 @@ figures/
 
 # Logs
 *.log
-
-# Environment variables
-.env
 
 # Python packaging
 build/
