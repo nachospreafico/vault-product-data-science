@@ -139,3 +139,11 @@ FROM card_with_account
 WHERE julianday(issued_date) - julianday(account_created_at) >= 0
   AND julianday(issued_date) - julianday(account_created_at) < 60
 GROUP BY type;
+
+-- Number of cards issued bucketized by days after account creation
+SELECT
+	FLOOR((julianday(issued_date) - julianday(account_created_at))/10) * 10 AS days_bucket,
+	COUNT(DISTINCT card_id) AS number_of_cards
+FROM card_with_account
+GROUP BY FLOOR((julianday(issued_date) - julianday(account_created_at))/10) * 10
+ORDER BY days_bucket ASC;
